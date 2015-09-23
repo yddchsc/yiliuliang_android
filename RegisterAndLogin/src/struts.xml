@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.action.extension" value="action" /> 
+	 <!-- <package name="login" extends="struts-default">
+		<action name="test" class="com.ym.struts_test.TestAction" method="login">
+		<result name="success">/success.jsp</result>
+		<result name="error">/error.jsp</result>
+		</action> 
+	</package>  -->	
+	<package name="default" extends="json-default">
+		<action name="test" class="com.ym.struts_test.TestAction" method="login">
+		<result type="json">
+		<param name="root">map</param>
+		</result>
+		</action>   
+		<action name="scenery_list" class="com.ym.listview_test.SceneryAction" method="sceneryList">
+			<result name="success" type="json">
+				<param name="root">jsonMap</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">jsonMap</param>
+			</result>
+		</action> 
+	</package>
+	 
+</struts>    
