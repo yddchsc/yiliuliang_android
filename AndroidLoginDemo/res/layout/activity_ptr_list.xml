@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!-- The PullToRefreshListView replaces a standard ListView widget. -->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="#FFC455"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/tf_acount_central"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:background="#00000000"
+            android:scaleType="centerInside"
+            android:src="@drawable/envolope" />
+
+        <ImageButton
+            android:id="@+id/tf_follow_account"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="18dp"
+            android:background="#00000000"
+            android:scaleType="centerInside"
+            android:src="@drawable/envolope" />
+
+    </RelativeLayout>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/pull_refresh_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.27"
+        android:background="#F2F2F2"
+        android:cacheColorHint="#FFFFFF"
+        android:divider="#19000000"
+        android:dividerHeight="4dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:listSelector="#FFFFFF"
+        android:smoothScrollbar="true" >
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/put"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="#00000000"
+            android:scaleType="centerInside"
+            android:src="@drawable/put" />
+
+        <ImageButton
+            android:id="@+id/mainpage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:background="#00000000"
+            android:scaleType="centerInside"
+            android:src="@drawable/mainpage" />
+
+        <ImageButton
+            android:id="@+id/person"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18dp"
+            android:background="#00000000"
+            android:scaleType="centerInside"
+            android:src="@drawable/person" />
+
+        <ImageButton
+            android:id="@+id/money"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignTop="@+id/put"
+            android:layout_marginRight="33dp"
+            android:layout_toLeftOf="@+id/put"
+            android:background="#00000000"
+            android:scaleType="centerInside"
+            android:src="@drawable/money" />
+
+        <ImageButton
+            android:id="@+id/friend"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignTop="@+id/put"
+            android:layout_marginLeft="34dp"
+            android:layout_toRightOf="@+id/put"
+            android:background="#00000000"
+            android:scaleType="centerInside"
+            android:src="@drawable/friend" />
+
+    </RelativeLayout>
+   
+</LinearLayout>

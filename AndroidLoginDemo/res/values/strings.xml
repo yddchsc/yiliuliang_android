@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, LoginAct!</string>
+    <string name="app_name">易流量</string>
+    <string name="username">手机号码</string>
+    <string name="password">密码</string>
+    <string name="password1">请重复密码</string>
+    <string name="login">登陆</string>
+    <string name="register">注册</string>
+    <string name="forget">forget</string>
+    <string name="ok">确定</string>
+    <string name="smssdk_user_info_submited_second">好友提示</string>
+</resources>
