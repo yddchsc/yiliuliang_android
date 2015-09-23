@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textView0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="3dp"
+        android:text="TextView"
+        android:textColor="#33548C"
+        android:textSize="10dip" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView1"
+        android:layout_toRightOf="@+id/imageView1"
+        android:text="TextView"
+        android:textColor="#33548C"
+        android:textSize="15dip" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="3dp"
+        android:layout_toRightOf="@+id/textView0"
+        android:text="TextView"
+        android:textColor="#33548C"
+        android:textSize="10dip" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignTop="@+id/textView0"
+        android:scaleType="centerInside"
+        android:src="@drawable/address" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_below="@+id/textView0"
+        android:text="TextView"
+        android:textColor="#FF7000" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_marginLeft="-54dp"
+        android:layout_toRightOf="@+id/textView3"
+        android:scaleType="centerInside"
+        android:src="@drawable/company" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageButton1"
+        android:layout_marginRight="14dp"
+        android:background="#00000000"
+        android:scaleType="centerInside"
+        android:src="@drawable/cartone" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_marginRight="14dp"
+        android:layout_toLeftOf="@+id/imageButton3"
+        android:background="#00000000"
+        android:scaleType="centerInside"
+        android:src="@drawable/evlope" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/image" />
+
+</RelativeLayout>
