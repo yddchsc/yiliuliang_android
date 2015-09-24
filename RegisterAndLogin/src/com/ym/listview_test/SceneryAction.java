@@ -47,7 +47,8 @@ public class SceneryAction extends ActionSupport implements ServletRequestAware,
 		String pageNo = request.getParameter("pageNo") ;
 		String[] strs = pageNo.split("/");
 		String sql;
-		service = new SceneryService("select id,username,number,address,company,money from scenery ORDER BY id DESC",0,0);
+		sql="select id,username,number,address,company,money from scenery ORDER BY id DESC";
+		service = new SceneryService(sql,0,0);
 		int currentPage = 0 ;
 		if(strs[0] == null){
 			currentPage = 1 ;
@@ -56,8 +57,9 @@ public class SceneryAction extends ActionSupport implements ServletRequestAware,
 		}
 		if (currentPage==1 || service.getCount()==Integer.parseInt(strs[1])){
 			sql="select id,username,number,address,company,money from scenery ORDER BY id DESC";
-			count = service.getCount();
 			service = new SceneryService(sql,currentPage,Integer.parseInt(strs[1]));
+			count = service.getCount();
+			
 		}else{
 			count = Integer.parseInt(strs[1]);
 			sql="select id,username,number,address,company,money from scenery ORDER BY id DESC "+"LIMIT "+Integer.toString(service.getCount()-count-1)+","+strs[1];
@@ -75,6 +77,7 @@ public class SceneryAction extends ActionSupport implements ServletRequestAware,
 			
 		}else{
 		//	list = service.select_all() ;
+			//System.out.println("=================>"+currentPage);
 			divpage = Divpage.getPage(currentPage, list.size()) ;
 			//System.out.println("=================>"+count);
 			List<Scenery> us = list.subList(divpage.getFromIndex(), divpage.getToIndex()) ;
@@ -89,8 +92,4 @@ public class SceneryAction extends ActionSupport implements ServletRequestAware,
 		// TODO Auto-generated method stub
 		this.response = response ;
 	}
-	
-	
-	
-
 }

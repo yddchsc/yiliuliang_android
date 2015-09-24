@@ -23,7 +23,7 @@ public class Divpage {
 				}else{
 					totalPage = Size/pageSize+1;
 				}
-				if(currentPage<=0){
+				if(currentPage<=1){
 					currentPage = 1;
 				}else if(currentPage>=totalPage){
 					currentPage = totalPage;

@@ -20,13 +20,14 @@ public class Scenery {
 
 	
 
-	public Scenery(String name, int id, String address,int number,String company,int money) {
+	public Scenery(String name, int id, String address,int number,String company,int money,int count) {
 		this.username = username;
 		this.id = id;
 		this.address = address;
 		this.number = number;
 		this.company = company;
 		this.money = money;
+		this.count=count;
 	}
 
 	public int getNumber() {
@@ -69,9 +70,8 @@ public class Scenery {
 		this.company = company;
 	}
 	public int getCount() {
-		return money;
+		return count;
 	}
-
 	public void setCount(int count) {
 		this.count = count;
 	}

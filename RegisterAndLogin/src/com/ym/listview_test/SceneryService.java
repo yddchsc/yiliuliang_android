@@ -25,14 +25,16 @@ public class SceneryService {
 	public List<Scenery> select_all(){
 		List<Scenery> list = new ArrayList<Scenery>() ;
 		Scenery scenery;
+		if(page == 1){
+			count = getCount();
+		}
+		else{
+			count = coun;
+		}
 		try {
 			conn=ConnectionManager.getConnection();
 			Statement stmt=conn.createStatement();
 			res=stmt.executeQuery(sql);
-			if(page == 1)
-				count = getCount();
-			else 
-				count = coun;
 			while(res.next()){
 				scenery = new Scenery() ;
 				scenery.setId(res.getInt("id")) ;
