@@ -10,4 +10,5 @@
     <string name="forget">forget</string>
     <string name="ok">确定</string>
     <string name="smssdk_user_info_submited_second">好友提示</string>
+    <string name="address"> 地区</string>
 </resources>

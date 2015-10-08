@@ -35,6 +35,7 @@ public class MaintwoActivity extends Activity {
 	private String count = "30" ;
 	ProgressDialog dialog ;
 	static int pageNo = 1 ;
+	static int page = 0 ;
 	String url = "http://registerandlogin.duapp.com/RegisterAndLogin/scenery_list.action?pageNo=" ;
 	boolean isScroll = false ;
 	List<Map<String, Object>> lists = new ArrayList<Map<String,Object>>() ;
@@ -48,7 +49,7 @@ public class MaintwoActivity extends Activity {
 		dialog.setMessage("正在加载中......") ;
 		adapter = new ListAdapter(this) ;
 		listView = (ListView) findViewById(R.id.listView1) ;
-		new DownloadTask().execute(url,Integer.toString(pageNo) ) ; 
+		new DownloadTask().execute(url,Integer.toString(pageNo)+"/"+count ) ; 
 	//	listView.setAdapter(adapter) ;
 		listView.setOnScrollListener(new OnScrollListener() {
 			
@@ -56,12 +57,13 @@ public class MaintwoActivity extends Activity {
 			public void onScrollStateChanged(AbsListView view, int scrollState) {
 				// TODO Auto-generated method stub
 				if(isScroll && (scrollState == SCROLL_STATE_IDLE)){     // ״̬��0    �������ײ�
-						new DownloadTask().execute(url,Integer.toString(pageNo)+"/"+count ) ;
+						new DownloadTask().execute(url,Integer.toString(pageNo)+"/"+adapter.count ) ;
 					
 				}else if(listView.getFirstVisiblePosition() == 0 && (scrollState == SCROLL_STATE_IDLE)){
 					
 					new DownloadTask().execute(url,Integer.toString(1)+"/"+count) ;
-					pageNo=0;
+					pageNo=1;
+					page=1;
 				}
 			}
 			
@@ -70,7 +72,7 @@ public class MaintwoActivity extends Activity {
 					int visibleItemCount, int totalItemCount) {
 				// TODO Auto-generated method stub
 				isScroll = ((firstVisibleItem + visibleItemCount) == totalItemCount) ;
-				System.out.println("------->"+totalItemCount) ;
+				//System.out.println("------->"+totalItemCount) ;
 			}
 		}) ;
 	}
@@ -134,25 +136,23 @@ public class MaintwoActivity extends Activity {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
 			
-			if(result.size() > 0 && pageNo>0){
+			if(result.size() > 0 && page==0){
 				lists.addAll(result) ;
 				adapter.setData(lists) ;
 				if(pageNo == 1){
 					listView.setAdapter(adapter) ;
-					count = adapter.count;
 				}
-				
 				adapter.notifyDataSetChanged() ;
 				pageNo ++ ;
-			}else if(pageNo==0){
-				lists = new ArrayList<Map<String,Object>>();
-				lists.addAll(result) ;
+			}else if(page==1){
+				lists=result ;
 				adapter.setData(lists) ;
 				listView.setAdapter(adapter) ;
 				adapter.notifyDataSetChanged() ;
-				count = adapter.count;
-				pageNo = 2 ;
-			}else{
+				pageNo ++ ;
+				page = 0;
+			}
+				else{
 				dialog.dismiss() ;
 				Toast.makeText(getApplicationContext(), "没有更多了....", 0).show() ;
 			}

@@ -60,10 +60,10 @@ public class MainActivity extends TabActivity {
 				.setContent(new Intent(this, MaintwoActivity.class)));
 		tabHost.addTab(tabHost.newTabSpec("guide_cart")
 				.setIndicator("guide_cart")
-				.setContent(new Intent(this, MaintwoActivity.class)));
+				.setContent(new Intent(this, CartActivity.class)));
 		tabHost.addTab(tabHost.newTabSpec("guide_put")
 				.setIndicator("guide_put")
-				.setContent(new Intent(this, MaintwoActivity.class)));
+				.setContent(new Intent(this, PutActivity.class)));
 	}
 
 	private void init() {

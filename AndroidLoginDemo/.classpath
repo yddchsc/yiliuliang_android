@@ -5,8 +5,8 @@
 	<classpathentry exported="true" kind="lib" path="D:/sf/myeclipse/apache-tomcat-5.5.35/common/lib/servlet-api.jar"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK/SMSSDK"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/SMSSDK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

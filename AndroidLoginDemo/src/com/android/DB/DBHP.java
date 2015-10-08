@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHP extends SQLiteOpenHelper {
 
-	String createTable2 = "create table bill(id integer primary key autoincrement ,username varchar(20),goodsflag int(11));";
+	String createTable = "create table bill(id integer primary key autoincrement ,username varchar(13),number int(11),address varchar(10),company varchar(4),money int(11));";
 
 	public DBHP(Context context, String name, CursorFactory factory, int version) {
 		super(context, name, factory, version);
@@ -23,7 +23,7 @@ public class DBHP extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
 
-		db.execSQL(createTable2);
+		db.execSQL(createTable);
 	}
 
 	@Override
