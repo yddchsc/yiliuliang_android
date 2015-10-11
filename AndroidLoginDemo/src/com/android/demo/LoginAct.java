@@ -217,8 +217,6 @@ public class LoginAct extends Activity {
 		
 
 			} else if ("false".equals(isUser)) {
-				System.out.println("走不走？");
-				System.out.println("是打发地方撒个撒旦法");
 				AlertDialog.Builder builder = new Builder(LoginAct.this);
 				builder.setMessage("用户名或密码输入错误！请重新登录");
 				builder.setTitle("提示");

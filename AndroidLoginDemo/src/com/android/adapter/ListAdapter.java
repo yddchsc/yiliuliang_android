@@ -1,5 +1,6 @@
 ﻿package com.android.adapter;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -12,9 +13,10 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
-
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +24,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ListAdapter extends BaseAdapter {
 	private Context mContext;
@@ -71,9 +72,14 @@ public class ListAdapter extends BaseAdapter {
 			vhHolder.tv1 = (TextView) convertView.findViewById(R.id.textView1) ;
 			vhHolder.tv2 = (TextView) convertView.findViewById(R.id.textView2) ;
 			vhHolder.tv3 = (TextView) convertView.findViewById(R.id.textView3) ;
-			vhHolder.img0 = (ImageView) convertView.findViewById(R.id.imageView1) ;
-			vhHolder.img1 = (ImageView) convertView.findViewById(R.id.imageView2) ;
-			vhHolder.img2 = (ImageView) convertView.findViewById(R.id.imageView3) ;
+			
+			convertView.findViewById(R.id.imageView2).setBackgroundDrawable(new BitmapDrawable(readBitMap(mContext, R.drawable.address)));
+			convertView.findViewById(R.id.imageView3).setBackgroundDrawable(new BitmapDrawable(readBitMap(mContext, R.drawable.company)));
+			convertView.findViewById(R.id.imageView1).setBackgroundDrawable(new BitmapDrawable(readBitMap(mContext, R.drawable.image)));
+			
+			//vhHolder.img0 = (ImageView) convertView.findViewById(R.id.imageView1) ;
+			//vhHolder.img1 = (ImageView) convertView.findViewById(R.id.imageView2) ;
+			//vhHolder.img2 = (ImageView) convertView.findViewById(R.id.imageView3) ;
 			vhHolder.imgbtn0 = (ImageButton) convertView.findViewById(R.id.imageButton1) ;
 			
 			vhHolder.imgbtn2 = (ImageButton) convertView.findViewById(R.id.imageButton3) ;
@@ -136,4 +142,57 @@ public class ListAdapter extends BaseAdapter {
 		ImageButton imgbtn0;
 		ImageButton imgbtn2;
 	}
+	public static Bitmap readBitMap(Context context, int resId){ 
+	         BitmapFactory.Options opt = new BitmapFactory.Options(); 
+	         opt.inPreferredConfig = Bitmap.Config.RGB_565; 
+	         opt.inPurgeable = true; 
+	         opt.inInputShareable = true; 
+	         opt.inSampleSize = computeSampleSize(opt, -1, 128*128);  //计算出图片使用的inSampleSize
+	         opt.inJustDecodeBounds = false; 
+	        //获取资源图片 
+	         InputStream is = context.getResources().openRawResource(resId); 
+	         return BitmapFactory.decodeStream(is,null,opt); 
+	         } 
+	     
+	     public static int computeSampleSize(BitmapFactory.Options options,
+	             int minSideLength, int maxNumOfPixels) {
+	         int initialSize = computeInitialSampleSize(options, minSideLength,maxNumOfPixels);
+	 
+	         int roundedSize;
+	         if (initialSize <= 8 ) {
+	             roundedSize = 1;
+	             while (roundedSize < initialSize) {
+	                 roundedSize <<= 1;
+	             }
+	         } else {
+	             roundedSize = (initialSize + 7) / 8 * 8;
+	         }
+	 
+	         return roundedSize;
+	     }
+	 
+	     private static int computeInitialSampleSize(BitmapFactory.Options options,int minSideLength, int maxNumOfPixels) {
+	         double w = options.outWidth;
+	         double h = options.outHeight;
+	 
+	         int lowerBound = (maxNumOfPixels == -1) ? 1 :
+	                 (int) Math.ceil(Math.sqrt(w * h / maxNumOfPixels));
+	         int upperBound = (minSideLength == -1) ? 128 :
+	                 (int) Math.min(Math.floor(w / minSideLength),
+	                 Math.floor(h / minSideLength));
+	 
+	         if (upperBound < lowerBound) {
+	             // return the larger one when there is no overlapping zone.
+	             return lowerBound;
+	         }
+	 
+	         if ((maxNumOfPixels == -1) &&
+	                 (minSideLength == -1)) {
+	             return 1;
+	         } else if (minSideLength == -1) {
+	             return lowerBound;
+	         } else {
+	             return upperBound;
+	         }
+	     }
 }

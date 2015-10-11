@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffffff</color>
+    <color name="alpha_bg">#01000000</color>
+    <color name="black">#ff000000</color>
+    <color name="blue">#ff00bfff</color>
+    <color name="red">#ffff0000</color>
+    <color name="blue_title">#ff519dca</color>
+    <color name="transparent">#00000000</color>
+    <color name="gray">#ffaaaaaa</color>
+    <color name="list_text">#ff114170</color>
+    <color name="grid_text">#ff114170</color>
+    <color name="label_text">#ff114170</color>
+    <color name="selected_bg">#ffe2fcff</color>
+    <color name="label_fs">#ff0385b0</color>
+    <color name="none">#00000000</color>
+    <color name="alpha_text">#55000000</color>
+    <color name="calendar_title_s">#fffc9b00</color>
+    <color name="calendar_today">#ff188ac5</color>
+    <color name="calendar_title">#ff667786</color>
+    <color name="alink">#ff0081ff</color>
+    <color name="calendar_month">#ff008fca</color>
+    <color name="calendar_year">#ff93ca00</color>
+</resources>

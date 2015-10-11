@@ -1,95 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/put_bg"
-    android:orientation="vertical" >
+<ScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent"
+	android:orientation="vertical" >
+	<LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.50" >
+		<RelativeLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="484dp"
+		    android:layout_weight="0.50"
+		    android:background="@drawable/put_bg" >
 
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="95dp"
-            android:layout_height="20dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="63dp"
-            android:layout_marginTop="97dp"
-            android:src="@drawable/putdata_one" />
+		    <ImageView
+		        android:id="@+id/imageView1"
+		        android:layout_width="95dp"
+		        android:layout_height="20dp"
+		        android:layout_alignParentLeft="true"
+		        android:layout_alignParentTop="true"
+		        android:layout_marginLeft="63dp"
+		        android:layout_marginTop="97dp"
+		        android:src="@drawable/putdata_one" />
 
-        <EditText
-            android:id="@+id/editText1"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="89dp"
-            android:layout_toRightOf="@+id/imageView1"
-            android:ems="4"
-            android:inputType="number" >
+		    <EditText
+		        android:id="@+id/editText1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="35dp"
+		        android:layout_alignParentTop="true"
+		        android:layout_marginTop="89dp"
+		        android:layout_toRightOf="@+id/imageView1"
+		        android:background="@drawable/textview_style"
+		        android:ems="4"
+		        android:inputType="number" />
 
-            <requestFocus />
-        </EditText>
+		    <ImageView
+		        android:id="@+id/imageView2"
+		        android:layout_width="20dp"
+		        android:layout_height="20dp"
+		        android:layout_alignTop="@+id/imageView1"
+		        android:layout_marginLeft="5dp"
+		        android:layout_toRightOf="@+id/editText1"
+		        android:src="@drawable/putdata_two" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignTop="@+id/imageView1"
-            android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@+id/editText1"
-            android:src="@drawable/putdata_two" />
+		    <ImageView
+		        android:id="@+id/imageView3"
+		        android:layout_width="95dp"
+		        android:layout_height="20dp"
+		        android:layout_alignLeft="@+id/imageView1"
+		        android:layout_below="@+id/editText1"
+		        android:layout_marginTop="14dp"
+		        android:src="@drawable/putmoney_one" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="95dp"
-            android:layout_height="20dp"
-            android:layout_alignLeft="@+id/imageView1"
-            android:layout_below="@+id/editText1"
-            android:layout_marginTop="14dp"
-            android:src="@drawable/putmoney_one" />
+		    <EditText
+		        android:id="@+id/editText2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="35dp"
+		        android:layout_below="@+id/editText1"
+		        android:layout_marginTop="10dp"
+		        android:layout_toRightOf="@+id/imageView3"
+		        android:background="@drawable/textview_style"
+		        android:ems="4"
+		        android:inputType="number" />
 
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_below="@+id/editText1"
-            android:layout_marginTop="5dp"
-            android:layout_toRightOf="@+id/imageView3"
-            android:ems="4"
-            android:inputType="number" />
+		    <ImageView
+		        android:id="@+id/imageView4"
+		        android:layout_width="22dp"
+		        android:layout_height="22dp"
+		        android:layout_alignLeft="@+id/imageView2"
+		        android:layout_alignTop="@+id/imageView3"
+		        android:src="@drawable/putmoney_two" />
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            android:layout_alignLeft="@+id/imageView2"
-            android:layout_alignTop="@+id/imageView3"
-            android:src="@drawable/putmoney_two" />
+		    <ImageView
+		        android:id="@+id/imageView5"
+		        android:layout_width="20dp"
+		        android:layout_height="20dp"
+		        android:layout_alignLeft="@+id/imageView3"
+		        android:layout_below="@+id/editText2"
+		        android:layout_marginLeft="39dp"
+		        android:layout_marginTop="18dp"
+		        android:src="@drawable/company" />
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignLeft="@+id/imageView3"
-            android:layout_below="@+id/editText2"
-            android:layout_marginLeft="39dp"
-            android:layout_marginTop="14dp"
-            android:src="@drawable/company" />
+		    <EditText
+		        android:id="@+id/editText3"
+		        android:layout_width="120dp"
+		        android:layout_height="35dp"
+		        android:layout_alignLeft="@+id/imageView5"
+		        android:layout_below="@+id/imageView5"
+		        android:layout_marginTop="21dp"
+		        android:background="@drawable/textview_style"
+		        android:drawableLeft="@drawable/address"
+		        android:hint="@string/address" />
 
-        <EditText
-            android:id="@+id/editText3"
-            android:background="@drawable/textview_style"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_alignLeft="@+id/imageView5"
-            android:layout_below="@+id/imageView5"
-            android:drawableLeft="@drawable/address"
-            android:hint="@string/address"
-            android:layout_marginTop="20dp"/>
+		    <com.spinner.test.CustomerSpinner
+		        android:id="@+id/spinner"
+		        android:layout_width="90dp"
+		        android:layout_height="40dp"
+		        android:layout_below="@+id/editText2"
+		        android:layout_marginLeft="5dp"
+		        android:layout_marginTop="7dp"
+		        android:layout_toRightOf="@+id/imageView5"
+		        android:background="@drawable/bg_spinner" />
 
-    </RelativeLayout>
+		    <ImageButton
+		        android:id="@+id/imageButton1"
+		        android:layout_width="57dp"
+		        android:layout_height="57dp"
+		        android:layout_alignParentBottom="true"
+		        android:layout_centerHorizontal="true"
+		        android:layout_marginBottom="14dp"
+		        android:background="#00000000"
+		        android:scaleType="centerInside"
+		        android:src="@drawable/put_btn" />
+		</RelativeLayout>
 
 </LinearLayout>
+</ScrollView>

@@ -16,7 +16,6 @@
         <item name="android:paddingTop">@dimen/bottom_tab_padding_up</item>
         <item name="android:paddingLeft">@dimen/bottom_tab_padding_left</item>
     </style>
-
     <declare-styleable name="RoundAngleImageView">
         <attr name="roundWidth" format="dimension" />
         <attr name="roundHeight" format="dimension" />
