@@ -57,6 +57,7 @@ public class PutActivity extends Activity {
 	private String questStr = "";
 	private String postStr = "";
 	private String host="registerandlogin.duapp.com";
+	private ImageButton return1;
     /** Called when the activity is first created. */
 	
     @Override
@@ -65,6 +66,7 @@ public class PutActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.put);
         
+        return1 = (ImageButton)findViewById(R.id.return1);
         put = (ImageButton)findViewById(R.id.imageButton1);
         put.setOnTouchListener(new View.OnTouchListener(){            
 		    public boolean onTouch(View v, MotionEvent event) {               
@@ -92,29 +94,19 @@ public class PutActivity extends Activity {
 				}
 			}
 		});
+        return1.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent =new Intent(PutActivity.this,MainActivity.class);
+				startActivity(intent);
+				PutActivity.this.finish();
+			}
+		});
     }
     @Override 
     public void onConfigurationChanged(Configuration config) { 
         super.onConfigurationChanged(config); 
     }
-    @Override
-	protected void onDestroy() {
-	    super.onDestroy();
-	 
-	    unbindDrawables(findViewById(R.id.spinner));
-	    System.gc();
-	}
-	private void unbindDrawables(View view) {
-	    if (view.getBackground() != null) {
-	        view.getBackground().setCallback(null);
-	    }
-	    if (view instanceof ViewGroup) {
-	        for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
-	            unbindDrawables(((ViewGroup) view).getChildAt(i));
-	        }
-	        ((ViewGroup) view).removeAllViews();
-	    }
-	}
     private void put() {
     	number = (EditText)findViewById(R.id.editText1);
         money = (EditText)findViewById(R.id.editText2);
@@ -160,10 +152,6 @@ public class PutActivity extends Activity {
 			String isUser = ConvertStreamToString(is);
 			if ("success".equals(isUser)) {
 				Toast.makeText(PutActivity.this, "发布成功", Toast.LENGTH_SHORT).show();
-				Intent intent =new Intent(PutActivity.this,MainActivity.class);
-				startActivity(intent);
-				onDestroy();
-				this.finish();
 			} 
 
 		} catch (ClientProtocolException e) {
@@ -207,11 +195,11 @@ public class PutActivity extends Activity {
 			t1 = true;
 		}
 		else{
-			Toast.makeText(PutActivity.this, "流量和价格不能为零哦", Toast.LENGTH_SHORT).show();
+			Toast.makeText(PutActivity.this, "流量和价格不能为零", Toast.LENGTH_SHORT).show();
 		}
 		if("".equals(address.getText().toString().trim())){
 			
-			Toast.makeText(PutActivity.this, "请填写地址，方便别人购买哦", Toast.LENGTH_SHORT).show();
+			Toast.makeText(PutActivity.this, "请填写地址，方便别人购买", Toast.LENGTH_SHORT).show();
 		}
 		else{
 			t2 = true;

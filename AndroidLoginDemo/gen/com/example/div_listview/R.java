@@ -21,12 +21,12 @@ public final class R {
 		public static final int ic_launcher = 0x7f020011;
 		public static final int image = 0x7f020013;
 		public static final int more = 0x7f020019;
-		public static final int see = 0x7f020026;
-		public static final int see_pressed = 0x7f020027;
-		public static final int yiliuliang = 0x7f020048;
+		public static final int see = 0x7f020027;
+		public static final int see_pressed = 0x7f020028;
+		public static final int yiliuliang = 0x7f020049;
 	}
 	public static final class id {
-		public static final int action_settings = 0x7f0b0064;
+		public static final int action_settings = 0x7f0b0065;
 		public static final int imageButton1 = 0x7f0b0004;
 		public static final int imageButton3 = 0x7f0b001a;
 		public static final int imageView1 = 0x7f0b0015;

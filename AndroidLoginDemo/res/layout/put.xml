@@ -115,6 +115,19 @@
 		        android:background="#00000000"
 		        android:scaleType="centerInside"
 		        android:src="@drawable/put_btn" />
+
+		    <ImageButton
+		        android:id="@+id/return1"
+		        android:layout_width="20dp"
+		        android:layout_height="20dp"
+		        android:layout_alignParentLeft="true"
+		        android:layout_alignParentTop="true"
+		        android:layout_marginLeft="15dp"
+		        android:layout_marginTop="14dp"
+		        android:background="#00000000"
+		        android:scaleType="centerInside"
+		        android:src="@drawable/return_picture" />
+
 		</RelativeLayout>
 
 </LinearLayout>

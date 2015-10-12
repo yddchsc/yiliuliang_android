@@ -35,8 +35,8 @@ public final class R {
 		public static final int btn_common_bg = 0x7f020002;
 		public static final int btn_common_bg_f = 0x7f020003;
 		public static final int icon = 0x7f020012;
-		public static final int spinner_title_bg = 0x7f020043;
-		public static final int tick = 0x7f020045;
+		public static final int spinner_title_bg = 0x7f020044;
+		public static final int tick = 0x7f020046;
 	}
 	public static final class id {
 		public static final int formcustomspinner_list = 0x7f0b0011;
