@@ -34,22 +34,22 @@ public final class R {
 		public static final int bg_spinner = 0x7f020001;
 		public static final int btn_common_bg = 0x7f020002;
 		public static final int btn_common_bg_f = 0x7f020003;
-		public static final int icon = 0x7f020013;
-		public static final int spinner_title_bg = 0x7f020048;
-		public static final int tick = 0x7f02004a;
+		public static final int icon = 0x7f020012;
+		public static final int spinner_title_bg = 0x7f020043;
+		public static final int tick = 0x7f020045;
 	}
 	public static final class id {
-		public static final int formcustomspinner_list = 0x7f0b0010;
-		public static final int icon = 0x7f0b000e;
-		public static final int itemText = 0x7f0b0011;
-		public static final int label = 0x7f0b000f;
-		public static final int spinner = 0x7f0b0034;
-		public static final int title = 0x7f0b000d;
+		public static final int formcustomspinner_list = 0x7f0b0011;
+		public static final int icon = 0x7f0b000f;
+		public static final int itemText = 0x7f0b0012;
+		public static final int label = 0x7f0b0010;
+		public static final int spinner = 0x7f0b0030;
+		public static final int title = 0x7f0b000e;
 	}
 	public static final class layout {
 		public static final int formcustomspinner = 0x7f030003;
 		public static final int item = 0x7f030004;
-		public static final int main = 0x7f030008;
+		public static final int main = 0x7f030007;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f060001;

@@ -35,20 +35,21 @@ public final class R {
         public static int yiliuliang=0x7f02000b;
     }
     public static final class id {
-        public static int action_settings=0x7f08000d;
-        public static int imageButton1=0x7f080003;
-        public static int imageButton3=0x7f08000c;
-        public static int imageView1=0x7f080007;
-        public static int imageView2=0x7f080009;
-        public static int imageView3=0x7f08000b;
-        public static int imgAdd=0x7f080002;
-        public static int listView1=0x7f080004;
+        public static int action_settings=0x7f08000e;
+        public static int imageButton1=0x7f080004;
+        public static int imageButton3=0x7f08000d;
+        public static int imageView1=0x7f080008;
+        public static int imageView2=0x7f08000a;
+        public static int imageView3=0x7f08000c;
+        public static int imgAdd=0x7f080003;
+        public static int listView1=0x7f080005;
         public static int relativeLayout1=0x7f080000;
-        public static int textView0=0x7f080005;
-        public static int textView1=0x7f080006;
-        public static int textView2=0x7f08000a;
-        public static int textView3=0x7f080008;
-        public static int tf_acount_central=0x7f080001;
+        public static int textView0=0x7f080006;
+        public static int textView1=0x7f080007;
+        public static int textView2=0x7f08000b;
+        public static int textView3=0x7f080009;
+        public static int tf_acount_central=0x7f080002;
+        public static int toptittle=0x7f080001;
     }
     public static final class layout {
         public static int activity_main=0x7f030000;

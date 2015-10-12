@@ -1,20 +1,51 @@
 package com.android.demo;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URI;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.protocol.HTTP;
 
 import com.spinner.test.CustomerSpinner;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class PutActivity extends Activity {
+	
 	public static ArrayList<String> list = new ArrayList<String>();
 	private ArrayAdapter<String> adapter;
 	
@@ -23,15 +54,17 @@ public class PutActivity extends Activity {
 	private EditText money;
 	private EditText address;
 	private ImageButton put;
+	private String questStr = "";
+	private String postStr = "";
+	private String host="registerandlogin.duapp.com";
     /** Called when the activity is first created. */
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
+    	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.put);
-        number = (EditText)findViewById(R.id.editText1);
-        money = (EditText)findViewById(R.id.editText2);
-        address = (EditText)findViewById(R.id.editText3);
+        
         put = (ImageButton)findViewById(R.id.imageButton1);
         put.setOnTouchListener(new View.OnTouchListener(){            
 		    public boolean onTouch(View v, MotionEvent event) {               
@@ -60,44 +93,150 @@ public class PutActivity extends Activity {
 			}
 		});
     }
-    
-    protected void put() {
-		// TODO Auto-generated method stub
+    @Override 
+    public void onConfigurationChanged(Configuration config) { 
+        super.onConfigurationChanged(config); 
+    }
+    @Override
+	protected void onDestroy() {
+	    super.onDestroy();
+	 
+	    unbindDrawables(findViewById(R.id.spinner));
+	    System.gc();
+	}
+	private void unbindDrawables(View view) {
+	    if (view.getBackground() != null) {
+	        view.getBackground().setCallback(null);
+	    }
+	    if (view instanceof ViewGroup) {
+	        for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+	            unbindDrawables(((ViewGroup) view).getChildAt(i));
+	        }
+	        ((ViewGroup) view).removeAllViews();
+	    }
+	}
+    private void put() {
+    	number = (EditText)findViewById(R.id.editText1);
+        money = (EditText)findViewById(R.id.editText2);
+        address = (EditText)findViewById(R.id.editText3);
+        spinner = (CustomerSpinner)findViewById(R.id.spinner);
+    	String numb = number.getText().toString();
+		String mone = money.getText().toString();
+		String company = spinner.getText().toString();
+		String addre = address.getText().toString();
+		SharedPreferences sharedPreferences = this.getSharedPreferences("info",this.MODE_PRIVATE);
+		String username = sharedPreferences.getString("username", "");
+		String httpstr = "http://";
+
+		postStr = httpstr + host
+				+ "/RegisterAndLogin/put";
+		
+		questStr = "{PUT:{username:'" + username + "',number:'" + numb + "',address:'" + addre + "',company:'" + company + "',money:'" + mone
+				+ "'}}";
+
+		System.out.println("====questStr====" + questStr);
+		System.out.println("====postStr====" + postStr);
+
+		try {
+			// 设置连接超时
+			HttpParams httpParameters = new BasicHttpParams();
+			int timeoutConnection = 3000;
+			HttpConnectionParams.setConnectionTimeout(httpParameters,
+					timeoutConnection);
+			DefaultHttpClient httpclient = new DefaultHttpClient(httpParameters);
+			HttpPost httpPost = new HttpPost(postStr);
+			List<NameValuePair> nvps = new ArrayList<NameValuePair>();
+			nvps.add(new BasicNameValuePair("username", username));
+			nvps.add(new BasicNameValuePair("number", numb));
+			nvps.add(new BasicNameValuePair("address", addre));
+			nvps.add(new BasicNameValuePair("company", company));
+			nvps.add(new BasicNameValuePair("money", mone));
+
+			httpPost.setEntity(new UrlEncodedFormEntity(nvps, HTTP.UTF_8));
+
+			HttpResponse response = httpclient.execute(httpPost);
+			HttpEntity entity = response.getEntity();
+			InputStream is = entity.getContent();
+			String isUser = ConvertStreamToString(is);
+			if ("success".equals(isUser)) {
+				Toast.makeText(PutActivity.this, "发布成功", Toast.LENGTH_SHORT).show();
+				Intent intent =new Intent(PutActivity.this,MainActivity.class);
+				startActivity(intent);
+				onDestroy();
+				this.finish();
+			} 
+
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
+ // 读取字符流
+ 	public String ConvertStreamToString(InputStream is) {
+ 		StringBuffer sb = new StringBuffer();
+ 		BufferedReader br = new BufferedReader(new InputStreamReader(is));
+ 		String returnStr = "";
+ 		try {
+ 			while ((returnStr = br.readLine()) != null) {
+ 				sb.append(returnStr);
+ 			}
 
+ 		} catch (IOException e) {
+ 			e.printStackTrace();
+ 		}
+ 		final String result = sb.toString();
+
+ 		// System.out.println(result);
+ 		return result;
+ 	}
 	private boolean putIsSuccsee() {
 		boolean t1 = false;
 		boolean t2 = false;
 		boolean t3 = false;
+		number = (EditText)findViewById(R.id.editText1);
+        money = (EditText)findViewById(R.id.editText2);
+        address = (EditText)findViewById(R.id.editText3);
+        spinner = (CustomerSpinner)findViewById(R.id.spinner);
 		String numb = number.getText().toString();
 		String mone = money.getText().toString();
 		String company = spinner.getText().toString();
-		String addre = address.getText().toString();
-		if(isNumeric(numb) && isNumeric(mone))
+		//String addre = address.getText().toString();
+		if(isNumeric(numb) && isNumeric(mone) && numb != "" && mone != ""){
 			t1 = true;
-		else
-			Toast.makeText(PutActivity.this, "流量和价格只能为数字哦", Toast.LENGTH_SHORT).show();
-		if(addre != null)
-			t2 = true;
-		else
+		}
+		else{
+			Toast.makeText(PutActivity.this, "流量和价格不能为零哦", Toast.LENGTH_SHORT).show();
+		}
+		if("".equals(address.getText().toString().trim())){
+			
 			Toast.makeText(PutActivity.this, "请填写地址，方便别人购买哦", Toast.LENGTH_SHORT).show();
-		if(company == "运营商")
+		}
+		else{
+			t2 = true;
+		}
+		if(company != "运营商"){
 			t3 = true;
-		else
+		}
+		else{
 			Toast.makeText(PutActivity.this, "请选择运营商", Toast.LENGTH_SHORT).show();
-		if(t1 && t2 && t3)
+		}
+		if(t1 && t2 && t3){
 			return true;
-		else
+		}
+		else{
 			return false;
+		}
 	}
 	public static boolean isNumeric(String str){
-		 for (int i = str.length();--i>=0;){   
-			 if (!Character.isDigit(str.charAt(i))){
-				 return false;
-			 }
-		 }
-		 return true;
+		System.out.println(str);
+		Pattern pattern = Pattern.compile("^[1-9]\\d*$"); 
+		   Matcher isNum = pattern.matcher(str);
+		   if( !isNum.matches() ){
+		       return false; 
+		   }
+		   return true; 
 	}
 	public void init(){
     	list.add("运营商");

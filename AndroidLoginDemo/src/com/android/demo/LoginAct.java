@@ -34,6 +34,7 @@ import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -131,14 +132,23 @@ public class LoginAct extends Activity {
 	 * 
 	 * 取得用户信息处理登录
 	 */
-
-	public void doLogin() {
-		
-		Intent intent = new Intent(LoginAct.this, MainActivity.class);
-		// this.setResult(0, this.getIntent().putExtras(bundle));
-		startActivity(intent);
-		this.finish();
-
+	@Override
+	protected void onDestroy() {
+	    super.onDestroy();
+	 
+	    unbindDrawables(findViewById(R.id.RootView));
+	    System.gc();
+	}
+	private void unbindDrawables(View view) {
+	    if (view.getBackground() != null) {
+	        view.getBackground().setCallback(null);
+	    }
+	    if (view instanceof ViewGroup) {
+	        for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+	            unbindDrawables(((ViewGroup) view).getChildAt(i));
+	        }
+	        ((ViewGroup) view).removeAllViews();
+	    }
 	}
 
 	/*
@@ -214,7 +224,7 @@ public class LoginAct extends Activity {
 				Intent intent =new Intent(LoginAct.this,MainActivity.class);
 				startActivity(intent);
 				this.finish();
-		
+				onDestroy();
 
 			} else if ("false".equals(isUser)) {
 				AlertDialog.Builder builder = new Builder(LoginAct.this);

@@ -13,11 +13,13 @@
 	<uses-permission android:name="android.permission.RECEIVE_SMS" />
 	<uses-permission android:name="android.permission.GET_TASKS" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
 	
     <application android:icon="@drawable/icon" android:label="@string/app_name">
         <activity 
             android:name=".Welcome"
-            android:theme="@android:style/Theme.NoTitleBar">
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -29,22 +31,14 @@
         	android:windowSoftInputMode="adjustUnspecified|stateHidden"  
         	android:configChanges="keyboardHidden|orientation">
     	</activity>
-		<activity 
-	    	android:name=".LoginActivity"
-	    	android:theme="@android:style/Theme.NoTitleBar">
-		</activity>
-		<activity 
-	    	android:name=".MyShowActivity"
-	    	android:theme="@android:style/Theme.NoTitleBar">
-		</activity>
+		
 		<activity 
 	   	 	android:name=".RegisterAct"
 	   	 	android:theme="@android:style/Theme.NoTitleBar"
 	    	android:windowSoftInputMode="adjustUnspecified|stateHidden"  
-        	android:configChanges="keyboardHidden|orientation">
-	    
+        	android:configChanges="keyboardHidden|orientation">  
 		</activity>
-		<activity android:name=".SucessAct"></activity>
+		
 		<activity android:name=".MainActivity"></activity>
 		<activity
 			android:name="com.mob.tools.MobUIShell"
@@ -68,14 +62,5 @@
     	    android:name=".PutActivity"
     	    android:theme="@android:style/Theme.NoTitleBar">
     	</activity>
-		<service android:name=".CountService"
-			android:label="CountService" 
-			android:icon="@drawable/icon"
-			android:enabled="true" 
-			android:exported="true" 
-			android:process=":remote"
-			android:debuggable="false">
-		</service>
     </application>
-    
 </manifest>

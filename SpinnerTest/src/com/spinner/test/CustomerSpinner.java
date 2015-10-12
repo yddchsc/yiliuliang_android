@@ -14,7 +14,7 @@ public class CustomerSpinner extends Spinner implements OnItemClickListener {
 
 	public static SelectDialog dialog = null;
 	private ArrayList<String> list;//ArrayList<String> list存储所要显示的数据 
-	public static String text;
+	public static String text = "运营商";
 
 	public CustomerSpinner(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -43,6 +43,7 @@ public class CustomerSpinner extends Spinner implements OnItemClickListener {
 			long id) {
 		setSelection(position);
 		setText(list.get(position));
+		text = list.get(position);
 		if (dialog != null) {
 			dialog.dismiss();
 			dialog = null;

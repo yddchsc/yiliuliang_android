@@ -16,30 +16,31 @@ public final class R {
 		public static final int cart = 0x7f020004;
 		public static final int cartone = 0x7f020005;
 		public static final int company = 0x7f020007;
-		public static final int envolope = 0x7f02000b;
-		public static final int evlope = 0x7f02000c;
-		public static final int ic_launcher = 0x7f020012;
-		public static final int image = 0x7f020015;
-		public static final int more = 0x7f02001d;
-		public static final int see = 0x7f02002b;
-		public static final int see_pressed = 0x7f02002c;
-		public static final int yiliuliang = 0x7f02004d;
+		public static final int envolope = 0x7f02000a;
+		public static final int evlope = 0x7f02000b;
+		public static final int ic_launcher = 0x7f020011;
+		public static final int image = 0x7f020013;
+		public static final int more = 0x7f020019;
+		public static final int see = 0x7f020026;
+		public static final int see_pressed = 0x7f020027;
+		public static final int yiliuliang = 0x7f020048;
 	}
 	public static final class id {
-		public static final int action_settings = 0x7f0b006a;
-		public static final int imageButton1 = 0x7f0b0003;
-		public static final int imageButton3 = 0x7f0b0019;
-		public static final int imageView1 = 0x7f0b0014;
-		public static final int imageView2 = 0x7f0b0016;
-		public static final int imageView3 = 0x7f0b0018;
-		public static final int imgAdd = 0x7f0b0002;
-		public static final int listView1 = 0x7f0b0004;
+		public static final int action_settings = 0x7f0b0064;
+		public static final int imageButton1 = 0x7f0b0004;
+		public static final int imageButton3 = 0x7f0b001a;
+		public static final int imageView1 = 0x7f0b0015;
+		public static final int imageView2 = 0x7f0b0017;
+		public static final int imageView3 = 0x7f0b0019;
+		public static final int imgAdd = 0x7f0b0003;
+		public static final int listView1 = 0x7f0b0005;
 		public static final int relativeLayout1 = 0x7f0b0000;
-		public static final int textView0 = 0x7f0b0012;
-		public static final int textView1 = 0x7f0b0013;
-		public static final int textView2 = 0x7f0b0017;
-		public static final int textView3 = 0x7f0b0015;
-		public static final int tf_acount_central = 0x7f0b0001;
+		public static final int textView0 = 0x7f0b0013;
+		public static final int textView1 = 0x7f0b0014;
+		public static final int textView2 = 0x7f0b0018;
+		public static final int textView3 = 0x7f0b0016;
+		public static final int tf_acount_central = 0x7f0b0002;
+		public static final int toptittle = 0x7f0b0001;
 	}
 	public static final class layout {
 		public static final int activity_main = 0x7f030000;

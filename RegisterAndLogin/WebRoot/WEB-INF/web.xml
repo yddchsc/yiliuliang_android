@@ -26,7 +26,16 @@
        <servlet-name>UserCountServlet</servlet-name>  
        <servlet-class>com.servlet.UserCountServlet</servlet-class>  
     </servlet>  
+	<servlet>  
+       <servlet-name>PutServlet</servlet-name>  
+       <servlet-class>com.servlet.PutServlet</servlet-class>  
+    </servlet>  
 
+    <servlet-mapping>  
+        <servlet-name>PutServlet</servlet-name>  
+        <url-pattern>/put</url-pattern>  
+    </servlet-mapping>
+	
     <servlet-mapping>  
         <servlet-name>UserCountServlet</servlet-name>  
         <url-pattern>/user</url-pattern>  

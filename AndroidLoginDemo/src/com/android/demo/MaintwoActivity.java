@@ -24,6 +24,8 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
@@ -76,6 +78,7 @@ public class MaintwoActivity extends Activity {
 			}
 		}) ;
 	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -158,7 +161,8 @@ public class MaintwoActivity extends Activity {
 			}
 			dialog.dismiss() ;
 		}
-
+		
+	    
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
