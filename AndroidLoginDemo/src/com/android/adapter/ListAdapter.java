@@ -107,7 +107,7 @@ public class ListAdapter extends BaseAdapter {
 							@Override
 							public void onClick(DialogInterface dialog,
 									int which) {
-								db = new DBHP((Activity)mContext, "bill.db", null, 1);
+								db = new DBHP((Activity)mContext, "bill.db", null, 2);
 								mDatabase = db.getWritableDatabase();
 								sharedPreferences = mContext.getSharedPreferences("info",mContext.MODE_PRIVATE);
 								String insertStr = "INSERT INTO bill (username,number,address,company,money) VALUES (?,?,?,?,?)";

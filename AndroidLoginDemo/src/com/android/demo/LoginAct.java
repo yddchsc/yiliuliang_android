@@ -48,7 +48,6 @@ public class LoginAct extends Activity {
 	private ImageButton forget;
 	private String questStr = "";
 	private String postStr = "";
-	private DBHP db = null;
 	private String host="registerandlogin.duapp.com";
 	String requestUrl = "http://registerandlogin.duapp.com/RegisterAndLogin/Login";
 	private Intent intent;

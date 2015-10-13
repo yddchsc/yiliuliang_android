@@ -26,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <data android:scheme="aone" android:host=".Welcome" />
+                <data android:scheme="aone" android:host="Welcome" />
             </intent-filter>
         </activity>
 		<activity 

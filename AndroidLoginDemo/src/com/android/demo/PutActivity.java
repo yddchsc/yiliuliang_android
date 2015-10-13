@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -26,19 +25,12 @@ import org.apache.http.protocol.HTTP;
 import com.spinner.test.CustomerSpinner;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.DialogInterface.OnClickListener;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -94,14 +86,14 @@ public class PutActivity extends Activity {
 				}
 			}
 		});
-        return1.setOnClickListener(new View.OnClickListener() {
+        /*return1.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent =new Intent(PutActivity.this,MainActivity.class);
+				Intent intent =new Intent(PutActivity.this,MaintwoActivity.class);
 				startActivity(intent);
 				PutActivity.this.finish();
 			}
-		});
+		});*/
     }
     @Override 
     public void onConfigurationChanged(Configuration config) { 
