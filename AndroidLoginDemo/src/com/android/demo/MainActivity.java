@@ -17,23 +17,10 @@ import android.widget.Toast;
 public class MainActivity extends TabActivity {
 
 	private long mExitTime;
-
 	private TabHost tabHost;
-	/**
-	 * ����ͼƬ
-	 */
 	private ImageView mTabImg;
-	/**
-	 * ����ͼƬƫ����
-	 */
 	private int zero = 0;
-	/**
-	 * ��һ��ˮƽ����ƽ�ƴ�С
-	 */
 	private int one = 0;
-	/**
-	 * ��ǰҳ�����
-	 */
 	private int currIndex = 0;
 	private Animation animation;
 	private RadioButton guide_home, guide_tfaccount, guide_account, guide_cart,
@@ -49,21 +36,27 @@ public class MainActivity extends TabActivity {
 
 	private void initTab() {
 		tabHost = getTabHost();
+		
+		Intent tabIntent = new Intent(MainActivity.this, MaintwoActivity.class);
+		Bundle bundle = new Bundle();
+		bundle.putString("page", "1"); //假设你的list是字符串类型
+		tabIntent.putExtras(bundle);
+		
 		tabHost.addTab(tabHost.newTabSpec("guide_home")
 				.setIndicator("guide_home")
-				.setContent(new Intent(this, MaintwoActivity.class)));
+				.setContent(tabIntent));
 		tabHost.addTab(tabHost.newTabSpec("guide_tfaccount")
 				.setIndicator("guide_tfaccount")
-				.setContent(new Intent(this, MaintwoActivity.class)));
+				.setContent(new Intent(this, MaintwoActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 		tabHost.addTab(tabHost.newTabSpec("guide_account")
 				.setIndicator("guide_account")
-				.setContent(new Intent(this, MaintwoActivity.class)));
+				.setContent(new Intent(this, MaintwoActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 		tabHost.addTab(tabHost.newTabSpec("guide_cart")
 				.setIndicator("guide_cart")
-				.setContent(new Intent(this, CartActivity.class)));
+				.setContent(new Intent(this, GoCartActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 		tabHost.addTab(tabHost.newTabSpec("guide_put")
 				.setIndicator("guide_put")
-				.setContent(new Intent(this, PutActivity.class)));
+				.setContent(new Intent(this, PutActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 	}
 
 	private void init() {

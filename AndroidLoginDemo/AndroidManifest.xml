@@ -63,6 +63,9 @@
     	    android:theme="@android:style/Theme.NoTitleBar">
     	</activity>
     	<activity 
+    	    android:name=".GoCartActivity">
+    	</activity>
+    	<activity 
     	    android:name=".PutActivity"
     	    android:theme="@android:style/Theme.NoTitleBar">
     	</activity>

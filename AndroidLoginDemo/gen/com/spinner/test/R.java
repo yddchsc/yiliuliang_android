@@ -34,17 +34,17 @@ public final class R {
 		public static final int bg_spinner = 0x7f020002;
 		public static final int btn_common_bg = 0x7f020004;
 		public static final int btn_common_bg_f = 0x7f020005;
-		public static final int icon = 0x7f020016;
-		public static final int spinner_title_bg = 0x7f02004d;
-		public static final int tick = 0x7f02004f;
+		public static final int icon = 0x7f020018;
+		public static final int spinner_title_bg = 0x7f02004f;
+		public static final int tick = 0x7f020051;
 	}
 	public static final class id {
-		public static final int formcustomspinner_list = 0x7f0b0018;
-		public static final int icon = 0x7f0b0016;
-		public static final int itemText = 0x7f0b001a;
-		public static final int label = 0x7f0b0017;
-		public static final int spinner = 0x7f0b002c;
-		public static final int title = 0x7f0b0015;
+		public static final int formcustomspinner_list = 0x7f0b001d;
+		public static final int icon = 0x7f0b001b;
+		public static final int itemText = 0x7f0b0020;
+		public static final int label = 0x7f0b001c;
+		public static final int spinner = 0x7f0b0031;
+		public static final int title = 0x7f0b001a;
 	}
 	public static final class layout {
 		public static final int formcustomspinner = 0x7f030005;

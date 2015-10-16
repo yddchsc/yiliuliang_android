@@ -23,11 +23,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.view.Menu;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 public class MaintwoActivity extends Activity {
@@ -35,7 +35,7 @@ public class MaintwoActivity extends Activity {
 	private ListAdapter adapter ;
 	private String count = "30" ;
 	ProgressDialog dialog ;
-	static int pageNo = 1 ;
+	static int pageNo=1 ;
 	static int page = 0 ;
 	String url = "http://registerandlogin.duapp.com/RegisterAndLogin/scenery_list.action?pageNo=" ;
 	boolean isScroll = false ;
@@ -45,11 +45,18 @@ public class MaintwoActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		super.setContentView(R.layout.activity_main);
 		
+		Intent intent = getIntent();
+		Bundle bundle = intent.getExtras();
+		String getList = bundle.getString("page");
+		
+		pageNo = Integer.parseInt( getList ); 
+		
 		dialog = new ProgressDialog(this) ;
 		dialog.setTitle("加载提示框") ;
 		dialog.setMessage("正在加载中......") ;
 		adapter = new ListAdapter(this) ;
 		listView = (ListView) findViewById(R.id.listView1) ;
+		
 		new DownloadTask().execute(url,Integer.toString(pageNo)+"/"+count ) ; 
 	//	listView.setAdapter(adapter) ;
 		listView.setOnScrollListener(new OnScrollListener() {

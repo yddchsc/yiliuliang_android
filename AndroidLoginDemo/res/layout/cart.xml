@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:id="@+id/cart"
     tools:context=".CartActivity" >
 
     <RelativeLayout
@@ -12,6 +13,17 @@
         android:layout_alignParentRight="true"
 		android:background="@drawable/cart_top"
         android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="#00000000"
+            android:scaleType="centerInside"
+            android:src="@drawable/return_picture" />
 		
     </RelativeLayout>
 	
@@ -19,15 +31,16 @@
         android:id="@+id/listView1"
         android:layout_width="match_parent"
         android:layout_height="390dp"
+        android:layout_above="@+id/relativeLayout2"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/relativeLayout1"
+        android:background="#f9efef"
         android:cacheColorHint="#FFFFFF"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin" >
 
     </ListView>
-
 	<RelativeLayout
 	    android:id="@+id/relativeLayout2"
 	    android:layout_width="fill_parent"
@@ -64,6 +77,17 @@
 		    android:background="#00000000"
 		    android:scaleType="centerInside"
 		    android:src="@drawable/pay" />
+
+		<ImageButton
+		    android:id="@+id/imageButton2"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentLeft="true"
+		    android:layout_centerVertical="true"
+		    android:layout_marginLeft="20dp"
+		    android:background="#00000000"
+		    android:scaleType="centerInside"
+		    android:src="@drawable/checkbox" />
 
 	</RelativeLayout>
 

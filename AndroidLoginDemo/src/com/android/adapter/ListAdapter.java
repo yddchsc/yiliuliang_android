@@ -107,13 +107,18 @@ public class ListAdapter extends BaseAdapter {
 							@Override
 							public void onClick(DialogInterface dialog,
 									int which) {
-								db = new DBHP((Activity)mContext, "bill.db", null, 2);
+								db = new DBHP((Activity)mContext, "bil.db", null, 4);
 								mDatabase = db.getWritableDatabase();
 								sharedPreferences = mContext.getSharedPreferences("info",mContext.MODE_PRIVATE);
-								String insertStr = "INSERT INTO bill (username,number,address,company,money) VALUES (?,?,?,?,?)";
-								String[] insertValue = {sharedPreferences.getString("username", ""),list.get(position).get("number").toString(),
-										list.get(position).get("address").toString(),list.get(position).get("company").toString(),list.get(position).get("money").toString() };
+								String insertStr = "INSERT INTO bill (username,number,address,company,money,flag) VALUES (?,?,?,?,?,?)";
+								String[] insertValue = {sharedPreferences.getString("username", ""),
+										list.get(position).get("number").toString(),
+										list.get(position).get("address").toString(),
+										list.get(position).get("company").toString(),
+										list.get(position).get("money").toString(),
+										list.get(position).get("id").toString() };
 								mDatabase.execSQL(insertStr, insertValue);
+								db.close();
 							}
 				});
 				builder.setNegativeButton("No",
